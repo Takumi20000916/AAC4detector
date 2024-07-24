@@ -36,7 +36,7 @@ async function switchModel(modelPath) {
 
 // 初期化関数
 const initializeObjectDetector = async () => {
-    await switchModel('./models/mickey.tflite');
+    await switchModel('./models/kidsmodel.tflite');
     enableCam();
     document.querySelector('#loading').style.display = 'none';
 };
@@ -106,24 +106,24 @@ function changedConfidenceThreshold(e) {
 }
 
 // ジェスチャー検出結果を処理する関数
-let currentModel = './models/mickey.tflite'; // 現在のモデルを保持
+let currentModel = './models/kidsmodel.tflite'; // 現在のモデルを保持
 
 function handleGestures() {
     if (gestures_results) {
         for (let i = 0; i < gestures_results.gestures.length; i++) {
             let name = gestures_results.gestures[i][0].categoryName;  // ジェスチャーのカテゴリ名 
-            if (name === "Pointing_Up" && currentModel !== './models/mickey.tflite') {
-                console.log(`Gesture: ${name} detected. Switching model to mickey.`);
-                switchModel('./models/mickey.tflite');
-            } else if (name === "Victory" && currentModel !== './models/hanyou.tflite') {
-                console.log(`Gesture: ${name} detected. Switching model to hanyou.`);
-                switchModel('./models/hanyou.tflite');
-            } else if (name === "THREE" && currentModel !== './models/MMickey2.tflite') {
-                console.log(`Gesture: ${name} detected. Switching model to MMickey2.`);
-                switchModel('./models/MMickey2.tflite');
-            } else if (name === "FOUR" && currentModel !== './models/efficientdet_lite0.tflite') {
-                console.log(`Gesture: ${name} detected. Switching model to efficientdet_lite0.`);
-                switchModel('./models/efficientdet_lite0.tflite');
+            if (name === "Pointing_Up" && currentModel !== './models/kidsmodel.tflite') {
+                console.log(`Gesture: ${name} detected. Switching model to kidsmodel.`);
+                switchModel('./models/kidsmodel.tflite');
+            } else if (name === "Victory" && currentModel !== './models/detail.tflite') {
+                console.log(`Gesture: ${name} detected. Switching model to detail.`);
+                switchModel('./models/detail.tflite');
+            } else if (name === "THREE" && currentModel !== './models/tempereture.tflite') {
+                console.log(`Gesture: ${name} detected. Switching model to tempereture.`);
+                switchModel('./models/tempereture.tflite');
+            } else if (name === "FOUR" && currentModel !== './models/container.tflite') {
+                console.log(`Gesture: ${name} detected. Switching model to container.`);
+                switchModel('./models/container.tflite');
             }
         }
     }

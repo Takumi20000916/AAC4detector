@@ -147,6 +147,7 @@ document.querySelector('#speakButton').addEventListener('click', () => {
             fill(c);
             // バウンディングボックスの下に別の矩形を描画
             rect(bb.originX, bb.originY - 20, bb.width, 20);
+            
             //もし名前がpersonだったら、人、robotだったらロボット、banabaだったらバナナと表示
             if (name === "14-green_tea") {
                 name = "緑茶";
@@ -165,7 +166,39 @@ document.querySelector('#speakButton').addEventListener('click', () => {
             }else if (name === "31-sports") {
                 name = "スポーツドリンク";
             }
-            
+
+            else if (name === "4-cold") {
+                name = "冷たい";
+            } else if (name === "5-hot") {
+                name = "あたたかい";
+            } 
+
+            //ドリンク種類のカテゴリ名を日本語に変換
+            else if (name === "6-tea") {
+                name = "お茶";
+            }else if (name === "7-black_tea") {
+                name = "紅茶";
+            } else if (name === "8-coffee") {
+                name = "コーヒー";
+            }else if (name === "9-juice") {
+                name = "ジュース";
+            } else if (name === "10-carbonated") {
+                name = "炭酸";
+            }else if (name === "11-dessert") {
+                name = "デザート";
+            }
+            else if (name === "12-food") {
+                name = "食べ物";
+            }
+
+            //容器情報のカテゴリ名を日本語に変換
+            else if (name === "1-pet") {
+                name = "ペットボトル";
+            } else if (name === "2-can") {
+                name = "缶";
+            }else if (name === "3-bottle") {
+                name = "瓶";
+            }
             
             //情報の表示
             noStroke();
