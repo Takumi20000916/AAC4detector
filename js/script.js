@@ -66,7 +66,9 @@ async function enableCam(event) {
 
     const constraints = {
         video: {
-            facingMode: 'environment'
+            facingMode: 'environment',
+            // width: { ideal: 400 }, // 幅を設定
+            // height: { ideal: 800 } // 高さを設定
         }
     };
 
@@ -74,7 +76,10 @@ async function enableCam(event) {
         .getUserMedia(constraints)
         .then(function (stream) {
             video.srcObject = stream;
-            video.addEventListener("loadeddata", predictWebcam);
+            video.addEventListener("loadeddata", () => {
+                adjustCanvas(); // カメラのストリームが開始された後にキャンバスを調整
+                predictWebcam();
+            });
         })
         .catch((err) => {
             console.error(err);
@@ -126,5 +131,14 @@ function handleGestures() {
                 switchModel('./models/container3.tflite');
             }
         }
+    }
+}
+
+function adjustCanvas() {
+    let video = document.querySelector('#webcam');
+    let canvas = document.querySelector('canvas');
+    if (video && canvas) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
     }
 }

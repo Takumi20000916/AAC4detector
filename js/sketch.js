@@ -156,7 +156,7 @@ document.querySelector('#speakButton').addEventListener('click', () => {
             } else if (name === "18-barley_tea") {
                 name = "麦茶";
             }else if (name === "29-cider") {
-                name = "サイダー";
+                name = "麦茶";
             } else if (name === "35-peach") {
                 name = "ピーチ";
             }else if (name === "25-unsweetened_coffee") {
@@ -207,7 +207,7 @@ document.querySelector('#speakButton').addEventListener('click', () => {
             textAlign(LEFT, CENTER);
             text(`${name} - ${score.toFixed(2)} `, bb.originX + 10, bb.originY - 10);// カテゴリ名と信頼度を描画
             if(!isSpeaking){
-                utterance.text = name + "が見えています";
+                utterance.text = name + "です";
                 speakText();
             }
             index++;
