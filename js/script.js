@@ -66,7 +66,7 @@ async function enableCam(event) {
 
     const constraints = {
         video: {
-            facingMode: 'environment'
+            facingMode: 'environment',
             // width: { ideal: 400 }, // 幅を設定
             // height: { ideal: 800 } // 高さを設定
         }
